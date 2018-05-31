@@ -1,0 +1,33 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  local_infile: true
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username:
+  password:
+  host: 127.0.0.1
+
+development:
+  <<: *default
+  database: teammaps_development
+  username: <%= ENV['TEAMMAPS_DATABASE_USERNAME'] %>
+  password: <%= ENV['TEAMMAPS_DATABASE_PASSWORD'] %>
+
+test:
+  <<: *default
+  database: teammaps_test
+  username: <%= ENV['TEAMMAPS_DATABASE_USERNAME'] %>
+  password: <%= ENV['TEAMMAPS_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: <%= ENV['TEAMMAPS_DATABASE_NAME'] %>
+  username: <%= ENV['TEAMMAPS_DATABASE_USERNAME'] %>
+  password: <%= ENV['TEAMMAPS_DATABASE_PASSWORD'] %>
+
+production:
+  <<: *default                                       
+  database: teammaps_prd
+  username: <%= ENV['TEAMMAPS_DATABASE_USERNAME'] %>
+  password: <%= ENV['TEAMMAPS_DATABASE_PASSWORD'] %>
+  host: <%= ENV['TEAMMAPS_DATABASE_HOST'] %>
