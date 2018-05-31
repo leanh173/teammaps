@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  team_maps:
+    new:
+      create: Create new Map
+      go_to_map: Go to Map
+      code: Enter Map Code
+  errors:
+    invalid_team_map_code: Invalid Code
