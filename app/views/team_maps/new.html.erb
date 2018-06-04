@@ -1,7 +1,16 @@
-<%= form_for @team_map do |f| %>
+<% form_for @team_map do |f| %>
   <%= f.submit t('.create'), class: "btn btn-primary" %>
   <%= t ".code" %>
   <%= @team_map.errors[:code] if @team_map.errors.any? %>
   <%= f.text_field :code %>
   <%= f.submit t('.go_to_map'), name: 'go_to_map',  class: "btn btn-primary" %>
 <% end %>
+
+<%= render partial: 'grayscales/shim' %>
+<%= render partial: 'grayscales/navigation' %>
+<%= render partial: 'grayscales/header' %>
+<%= render partial: 'grayscales/about' %>
+<%= render partial: 'grayscales/download' %>
+<%= render partial: 'grayscales/contact' %>
+<%= render partial: 'grayscales/map' %>
+<%= render partial: 'grayscales/footer' %>

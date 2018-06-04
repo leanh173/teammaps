@@ -30,6 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  grayscales:
+    download:
+      create: Create new Map
+      go_to_map: Go to Map
+      code: Enter Map Code
   team_maps:
     new:
       create: Create new Map

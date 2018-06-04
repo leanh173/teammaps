@@ -1,15 +1,30 @@
-<section id="maps" class="content-section text-center">
-  <div class="maps-section">
+<section id="download" class="content-section text-center">
+  <div class="download-section">
     <div class="container">
       <div class="col-lg-8 col-lg-offset-2">
         <%= form_for @team_map do |f| %>
           <h2>Create a Map </h2>
           <p>You can create a new map for your team by click create map below or join a map by a code from your friend</p>
-          <%= f.submit t('.create'), class: "btn btn-primary" %>
-          <%= t ".code" %>
-          <%= @team_map.errors[:code] if @team_map.errors.any? %>
-          <%= f.text_field :code %>
-          <%= f.submit t('.go_to_map'), name: 'go_to_map',  class: "btn btn-primary" %>
+          <div class="col-lg-4 col-lg-offset-4">
+            <%= f.submit t('.create'), class: "btn btn-primary form-control" %>
+          </div>
+          <div class="col-lg-4 col-lg-offset-4">
+            <h2>OR</h2>
+          </div>
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="col-lg-5">
+              <%= t ".code" %>
+            </div>
+            <div class="col-lg-6">
+              <%= f.text_field :code, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-4 col-lg-offset-4">
+            <%= @team_map.errors[:code] if @team_map.errors.any? %>
+          </div>
+          <div class="col-lg-4 col-lg-offset-4">
+            <%= f.submit t('.go_to_map'), name: 'go_to_map',  class: "btn btn-primary form-control" %>
+          </div>
         <% end %>
 
       </div>
