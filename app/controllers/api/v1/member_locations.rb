@@ -11,7 +11,6 @@ class API::V1::MemberLocations < Grape::API
       end
     end
     post '/' do
-      binding.pry
       team_map = TeamMap.find_by(code: permitted_params[:code])
       member_location = team_map.member_locations.create!(permitted_params[:member_location])
       member_location

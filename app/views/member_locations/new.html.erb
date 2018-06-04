@@ -1,0 +1,17 @@
+<%= form_for @member_location do |f| %>
+  <%= t ".name" %>
+  <%= @member_location.errors[:name] if @member_location.errors.any? %>
+  <%= f.text_field :name %>
+  <%= f.hidden_field :location %>
+  <%= hidden_field_tag :code, params[:code] %>
+  <%= f.submit t('.go_to_map'), class: "btn btn-primary" %>
+<% end %>
+
+<script>
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var location = position.coords.latitude + "," + position.coords.longitude;
+    $("#member_location_location").val(location)
+  }, function() {
+    handleLocationError(true, infoWindow, map.getCenter());
+  });
+</script>

@@ -17,7 +17,7 @@ class CreateTeamMapService
   def generate_code
     code = ''
     loop do
-      code = charset.sample(4).join
+      code = charset.sample(6).join
       next unless code =~ /\d/ # skip if it doesn't include any digit number
       break unless TeamMap.find_by(code: code)
     end

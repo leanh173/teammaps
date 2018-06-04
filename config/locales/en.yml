@@ -35,5 +35,10 @@ en:
       create: Create new Map
       go_to_map: Go to Map
       code: Enter Map Code
+  member_locations:
+    new:
+      name: Your Name
+      go_to_map: Go to Map
   errors:
     invalid_team_map_code: Invalid Code
+    taken_name: Name is existed already
