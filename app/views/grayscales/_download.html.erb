@@ -1,0 +1,18 @@
+<section id="maps" class="content-section text-center">
+  <div class="maps-section">
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-2">
+        <%= form_for @team_map do |f| %>
+          <h2>Create a Map </h2>
+          <p>You can create a new map for your team by click create map below or join a map by a code from your friend</p>
+          <%= f.submit t('.create'), class: "btn btn-primary" %>
+          <%= t ".code" %>
+          <%= @team_map.errors[:code] if @team_map.errors.any? %>
+          <%= f.text_field :code %>
+          <%= f.submit t('.go_to_map'), name: 'go_to_map',  class: "btn btn-primary" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</section>

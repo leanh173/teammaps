@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "team_maps/:code/member/new" => 'member_locations#new', as: :new_member_location
 
   root "team_maps#new"
+  get 'grayscales/index'
 end

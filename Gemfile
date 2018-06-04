@@ -44,8 +44,9 @@ gem 'grape-swagger-rails'
 # gem 'grape-kaminari'
 gem 'grape-route-helpers', '~> 2.1'
 
-gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+gem 'frontend-generators'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
