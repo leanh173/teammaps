@@ -8,9 +8,9 @@
   var member_locations = [];
   var markers = [];
 
-  async function fetchMemberLocations(render) {
+  async function fetchMemberLocations() {
     var path = window.location.pathname.split("/").slice(0, 3).join("/");
-    var tmp = await $.ajax({
+    var data = await $.ajax({
       type: 'get',
       url: '/api/v1' + path,
       dataType: 'json',
@@ -19,7 +19,7 @@
         member_locations = data;
       }
     });
-    return render;
+    return data;
   }
 
   async function pushCurrentLocations(location) {
@@ -73,9 +73,9 @@
   }
 
   function fetchAndDrawMap(map){
-    fetchMemberLocations(drawMemberIntoMap(map, true));
+    fetchMemberLocations().then( data => drawMemberIntoMap(map, true));
     return setTimeout(function(){ 
-      fetchMemberLocations(drawMemberIntoMap(map, false));
+      fetchMemberLocations().then( data => drawMemberIntoMap(map, false));
     }, 10000);
   }
 
