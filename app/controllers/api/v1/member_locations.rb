@@ -18,13 +18,16 @@ class API::V1::MemberLocations < Grape::API
 
     desc "update location"
     params do
-      requires :id, type: Integer, desc: "member id"
+      requires :member_name, type: String, desc: "member id"
+      requires :code, type: String, desc: "member id"
       requires :member_location, type: Hash, desc: "member attributes" do
         requires :location, type: String, desc: "member location"
       end
     end
-    put ":id" do
-      member_location = MemberLocation.find_by(id: permitted_params[:id])
+    put ":code/:member_name" do
+      team_map = TeamMap.find_by(code: permitted_params[:code])
+
+      member_location = team_map.member_locations.find_by(name: permitted_params[:member_name])
       member_location.update! location: permitted_params[:member_location][:location]
       member_location
     end
