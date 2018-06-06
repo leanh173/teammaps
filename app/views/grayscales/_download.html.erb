@@ -15,7 +15,7 @@
           </div>
           <div class="col-lg-4 col-md-12">
             <h1>Join a Map</h1>
-            <p>Let's joining a map by a code from your friend</p>
+            <p>Let's join a map by code from your friend</p>
             <div class="col-lg-12">
               <div class="col-lg-8 col-md-12">
                 <h4 style="padding-top: 6px;"><%= t ".code" %></h4>
@@ -23,9 +23,9 @@
               <div class="col-lg-4 col-md-6">
                 <%= f.text_field :code, class: "form-control" %>
               </div>
-              <div class="col-lg-12">
-                <%= @team_map.errors[:code] if @team_map.errors.any? %>
-              </div>
+              <% if flash[:danger] %>
+                <div class="col-lg-4 col-md-6 error-box"><%= flash[:danger] %></div>
+              <% end %>
             </div>
             <div class="col-lg-8 col-lg-offset-2 btn-maps">
               <div class="col-lg-4">

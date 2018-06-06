@@ -9,7 +9,7 @@ class MemberLocationsController < ApplicationController
     team_map = TeamMap.find_by(code: params[:code])
     member_location = team_map.member_locations.new(member_location_params)
     return redirect_to member_location_path(code: params[:code], member_name: member_location.name) if member_location.save
-    render new
+    redirect_to(new_member_location_path(code: team_map.code), flash: { danger: I18n.t("errors.invalid_name") })
   end
 
   def show

@@ -9,6 +9,9 @@
         <div class="col-lg-6 col-md-12">
           <%= f.text_field :name, class: "form-control" %>
         </div>
+        <% if flash[:danger] %>
+          <div class="col-lg-6 col-md-12 error-box"><%= flash[:danger] %></div>
+        <% end %>
       </div>
       <%= f.hidden_field :location %>
       <%= hidden_field_tag :code, params[:code] %>

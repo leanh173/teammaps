@@ -47,3 +47,4 @@ en:
   errors:
     invalid_team_map_code: Invalid Code
     taken_name: Name is existed already
+    invalid_name: Name is invalid or existed already
