@@ -1,23 +1,26 @@
 <div class="intro container content-section text-center">
   <%= form_for @member_location do |f| %>
-    <div class="new-member-form">
+    <div class="new-member-form" data-new-member="new-member">
       <%= @member_location.errors[:name] if @member_location.errors.any? %>
       <div class="col-lg-4 col-md-12 col-lg-offset-4 ">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-4 col-sm-4">
           <h2><%= t ".name" %></h2>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-4 col-sm-4">
           <%= f.text_field :name, class: "form-control" %>
         </div>
         <% if flash[:danger] %>
-          <div class="col-lg-6 col-md-12 error-box"><%= flash[:danger] %></div>
+          <div class="col-lg-6 col-md-12 col-sm-12 error-box"><%= flash[:danger] %></div>
         <% end %>
       </div>
       <%= f.hidden_field :location %>
       <%= hidden_field_tag :code, params[:code] %>
-      <div class="col-lg-12 col-md-12 btn-maps">
+      <div class="col-lg-12 col-md-12 col-sm-12 btn-maps">
         <%= f.submit t('.go_to_map'), class: "btn btn-default btn-lg" %>
       </div>
+    </div>
+    <div class="col-lg-12 col-md-12" style="display: none;" data-note-allow-location="location">
+      <h2><%= t('.not_allow_location_yet').html_safe %></h2>
     </div>
   <% end %>
 </div>
@@ -28,6 +31,7 @@
     console.log(location);
     $("#member_location_location").val(location);
   }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
+    $("[data-new-member]").hide()
+    $("[data-note-allow-location]").show()
   });
 </script>

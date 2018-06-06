@@ -44,6 +44,7 @@ en:
     new:
       name: Your Name
       go_to_map: Go to Map
+      not_allow_location_yet: You do not allow permission in browser. <br/> Please allow location to use APP.
   errors:
     invalid_team_map_code: Invalid Code
     taken_name: Name is existed already
