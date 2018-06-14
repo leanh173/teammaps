@@ -72,10 +72,20 @@
     });
   }
 
+  function fetchMemberLocationsRecursive(map){
+    fetchMemberLocations().then( data => {
+      drawMemberIntoMap(map, false);
+      return setTimeout(function(){
+        fetchMemberLocationsRecursive(map);
+      }, 10000);
+    });
+
+  }
+
   function fetchAndDrawMap(map){
     fetchMemberLocations().then( data => drawMemberIntoMap(map, true));
-    return setTimeout(function(){ 
-      fetchMemberLocations().then( data => drawMemberIntoMap(map, false));
+    return setTimeout(function(){
+      fetchMemberLocationsRecursive(map);
     }, 10000);
   }
 
