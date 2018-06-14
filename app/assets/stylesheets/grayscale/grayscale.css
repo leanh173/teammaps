@@ -304,10 +304,20 @@ a:focus {
     transition: all .3s ease-in-out;
 }
 
-.btn-default {
-    border: 1px solid #42dca3;
-    color: #42dca3;
-    background-color: transparent;
+@media(min-width:767px) {
+    .btn-default {
+        border: 1px solid #42dca3;
+        color: #42dca3;
+        background-color: transparent;
+    }
+}
+
+@media(max-width:767px) {
+    .btn-default {
+        border: 1px solid #42dca3;
+        color: #000;
+        background-color: #42dca3;
+    }
 }
 
 .btn-default:hover,

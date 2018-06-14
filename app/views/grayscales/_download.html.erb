@@ -12,6 +12,10 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-12">
+            <div class="hidden-lg">
+              <h1></h1>
+              <h1>OR</h1>
+            </div>
           </div>
           <div class="col-lg-4 col-md-12">
             <h1>Join a Map</h1>
@@ -20,7 +24,7 @@
               <div class="col-lg-8 col-md-12">
                 <h4 style="padding-top: 6px;"><%= t ".code" %></h4>
               </div>
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-4 col-sm-4">
                 <%= f.text_field :code, class: "form-control" %>
               </div>
               <% if flash[:danger] %>
